@@ -1,32 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LayoutComponent } from './core/layout/layout.component';
+import { ListaAlumnosComponent } from './alumnos/lista-alumnos/lista-alumnos.component';
+import { AbmAlumnosComponent } from './alumnos/abm-alumnos/abm-alumnos.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/alumnos/lista-alumnos', pathMatch: 'full' },
   {
-    path: '',
-    component: LayoutComponent,
-    children: [
-      {
-        path: 'alumnos',
-        loadChildren: () =>
-          import('./features/alumnos/alumnos.module').then(
-            (m) => m.AlumnosModule
-          ),
-      },
-      {
-        path: 'clases',
-        loadChildren: () =>
-          import('./features/clases/clases.module').then((m) => m.ClasesModule),
-      },
-      {
-        path: 'cursos',
-        loadChildren: () =>
-          import('./features/cursos/cursos.module').then((m) => m.CursosModule),
-      },
-      { path: '', redirectTo: 'alumnos', pathMatch: 'full' },
-    ],
+    path: 'alumnos',
+    loadChildren: () =>
+      import('./alumnos/alumnos.module').then((m) => m.AlumnosModule),
   },
+  { path: 'editar-alumno/:id', component: AbmAlumnosComponent },
+  { path: '**', redirectTo: '/alumnos/lista-alumnos' },
 ];
 
 @NgModule({

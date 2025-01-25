@@ -1,0 +1,35 @@
+<mat-sidenav-container class="sidenav-container h-100">
+  <mat-sidenav mode="side" opened class="sidenav bg-light border-end">
+    <div class="py-3 px-3 border-bottom">
+      <h5 class="fw-bold m-0">Gestión de Alumnos</h5>
+    </div>
+    <mat-nav-list>
+      <a
+        mat-list-item
+        routerLink="/alumnos/lista-alumnos"
+        routerLinkActive="text-primary fw-bold"
+        class="d-flex align-items-center text-dark"
+      >
+        <i class="bi bi-list-ul me-2"></i> Lista de Alumnos
+      </a>
+      <a
+        mat-list-item
+        routerLink="/alumnos/abm-alumnos"
+        routerLinkActive="text-primary fw-bold"
+        class="d-flex align-items-center text-dark"
+      >
+        <i class="bi bi-person-plus me-2"></i> ABM Alumnos
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" class="shadow-sm">
+      <span class="fw-bold">Gestión de Alumnos</span>
+    </mat-toolbar>
+
+    <div class="container mt-3">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
